@@ -1,0 +1,37 @@
+.FoodDisplay {
+  position: relative;
+  background-color: rgb(223, 176, 176);
+  width: 50vw;
+  height: 1200px;
+  margin-top: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+#searchForm {
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 2rem;
+}
+#searchBar {
+  padding-left: 1rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 25px;
+  outline: none;
+}
+
+.FoodItems {
+  display: grid;
+  background-color: rgb(185, 61, 61);
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 90%;
+  margin-top: 3rem;
+}
