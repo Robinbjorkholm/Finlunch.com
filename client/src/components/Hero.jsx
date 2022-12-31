@@ -6,8 +6,9 @@ export default function Hero() {
     <div className="Hero">
       <span className="Banner">Finlunch</span>
       <span className="Login">
-        <a href="https://www.google.com/">Login</a>
+        <a href="/Login">Login</a>
       </span>
+
       <span className="Signup">
         <a href="https://www.google.com/">SignUp</a>
       </span>
