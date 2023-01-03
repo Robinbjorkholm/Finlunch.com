@@ -21,20 +21,11 @@ a {
 }
 .Login {
   position: absolute;
-  right: 12rem;
+  right: 5rem;
   top: 1.7rem;
   font-size: 2rem;
 }
-.Signup {
-  position: absolute;
-  right: 4rem;
-  top: 1.7rem;
 
-  font-size: 2rem;
-}
-.Signup:before {
-  color: #333;
-}
 .Login :visited {
   color: #333;
 }

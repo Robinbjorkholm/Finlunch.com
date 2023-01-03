@@ -1,0 +1,13 @@
+.Filtering {
+  position: sticky;
+  display: inline;
+  height: 20px;
+  width: 15vw;
+  min-width: 3rem;
+  background-color: red;
+  bottom: 25rem;
+}
+
+.FilterFood {
+  list-style: none;
+}
