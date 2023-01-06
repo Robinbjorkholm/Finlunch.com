@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Robin\\Desktop\\finlunch\\backend\\Backend.csproj": {}
+    "C:\\Users\\Robin\\Desktop\\finlunch\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Robin\\Desktop\\finlunch\\backend\\Backend.csproj": {
+    "C:\\Users\\Robin\\Desktop\\finlunch\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Robin\\Desktop\\finlunch\\backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\Robin\\Desktop\\finlunch\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\Robin\\Desktop\\finlunch\\backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\Robin\\Desktop\\finlunch\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\Robin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Robin\\Desktop\\finlunch\\backend\\obj\\",
+        "outputPath": "C:\\Users\\Robin\\Desktop\\finlunch\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Robin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,6 +38,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

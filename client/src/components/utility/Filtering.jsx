@@ -4,7 +4,18 @@ import { getFoodTypes } from "./../Services/getFoodType";
 
 class Filtering extends Component {
   state = {
-    foodTypes: ["Hamburger", "Pizza", "Kebab"],
+    foodTypes: [
+      {
+        id: 1,
+        type: "Hamburger",
+      },
+      {
+        id: 2,
+        type: "Pizza",
+      },
+      { id: 3, type: "kebab" },
+    ],
+    selectedFoodType: "",
   };
 
   /*
@@ -17,14 +28,25 @@ class Filtering extends Component {
     console.log(this.state.foodTypes);
   }
 */
+  handleFoodFiltering = food => {
+    if (this.state.selectedFoodType === food) {
+      this.setState({ selectedFoodType: null });
+    } else this.setState({ selectedFoodType: food });
+  };
+
   render() {
     return (
       <div className="Filtering">
         <ul className="FilterFood">
-          {this.state.foodTypes.map(food => {
+          <p id="whatToEat"> I want to eat </p>
+          {this.state.foodTypes.map((food, id) => {
             return (
-              <li onClick={() => console.log(food)} key={food}>
-                {food}
+              <li
+                onClick={() => this.handleFoodFiltering(food)}
+                key={id}
+                id={this.state.selectedFoodType === food ? "foodTypeActive" : "foodType"}
+              >
+                {food.type}
               </li>
             );
           })}
