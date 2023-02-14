@@ -1,23 +1,34 @@
-import React, { useState } from "react";
-import "./FoodDisplay.css";
+import React, { Component } from "react";
+import ".././FoodDisplay.css";
 import Pagination from "./utility/Pagination";
 import NewFood from "./NewFood";
 
-function FoodDisplay() {
-  const [foodForm, openFoodForm] = useState(false);
+class FoodDisplay extends Component {
+  state = {
+    FoodFormOpen: false,
+  };
 
-  return (
-    <div className="FoodDisplay">
-      <button onClick={() => openFoodForm(true)}> New Food </button>
+  openFoodForm = () => {
+    this.setState({ FoodFormOpen: true });
+  };
+  closeFoodForm = () => {
+    this.setState({ FoodFormOpen: false });
+  };
 
-      {foodForm ? <NewFood openFoodForm={openFoodForm} /> : null}
-      <form id="searchForm">
-        <input type="text" placeholder="Search..." id="searchBar" name="searchBar"></input>
-      </form>
-      <div className="FoodItems"></div>
-      <Pagination />
-    </div>
-  );
+  render() {
+    return (
+      <div className="FoodDisplay">
+        <button onClick={() => this.openFoodForm()}> New Food </button>
+
+        {this.state.FoodFormOpen ? <NewFood closeFoodForm={this.closeFoodForm} /> : null}
+        <form id="searchForm">
+          <input type="text" placeholder="Search..." id="searchBar" name="searchBar"></input>
+        </form>
+        <div className="FoodItems"></div>
+        <Pagination />
+      </div>
+    );
+  }
 }
 
 export default FoodDisplay;

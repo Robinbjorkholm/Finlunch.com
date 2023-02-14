@@ -1,30 +1,26 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql2");
-
-app.use(express.json);
+const mysql = require("mysql");
+require("dotenv").config();
+app.use(express.json());
 
 const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "password",
-  database: "finlunch.com",
+  user: process.env.ROOT,
+  host: process.env.HOSTNAME,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
 });
 
 app.post("/createfoodtype", (req, res) => {
-  db.query(
-    "INSERT INTO finlunchtype (finlunchtypename) VALUES (?)",
-    ["kebabrullo"],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send("creatfoodtype sent");
-      }
+  db.query("INSERT INTO finlunchtype (finlunchtypename) VALUES (?)", ["kebabrullo"], (err, res) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send("creatfoodtype sent");
     }
-  );
+  });
 });
-app.get("/sql", (Req, res) => {
+app.get("/sql", (req, res) => {
   res.send("hello world");
 });
 
