@@ -34,3 +34,7 @@
   height: 90%;
   margin-top: 3rem;
 }
+
+#openFoodForm {
+  position: absolute;
+}

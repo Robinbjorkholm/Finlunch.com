@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import ".././FoodDisplay.css";
 import Pagination from "./utility/Pagination";
+import getFoodTypes from "./Services/getFoodType";
 import NewFood from "./NewFood";
 
 class FoodDisplay extends Component {
   state = {
     FoodFormOpen: false,
   };
+
+  async componentDidMount() {
+    const { data } = await getFoodTypes();
+    console.log(data);
+  }
 
   openFoodForm = () => {
     this.setState({ FoodFormOpen: true });
@@ -18,7 +24,10 @@ class FoodDisplay extends Component {
   render() {
     return (
       <div className="FoodDisplay">
-        <button onClick={() => this.openFoodForm()}> New Food </button>
+        <button id="openFoodForm" onClick={() => this.openFoodForm()}>
+          {" "}
+          New Food{" "}
+        </button>
 
         {this.state.FoodFormOpen ? <NewFood closeFoodForm={this.closeFoodForm} /> : null}
         <form id="searchForm">
