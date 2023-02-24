@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import ".././NewFood.css";
-
-//option ska koma från database finlunchtype
+import postFood from "./Services/createFood";
+import Axios from "axios";
 
 function NewFood({ closeFoodForm }) {
-  const initialFoodValues = {
-    foodName: "",
-    foodType: "",
-    foodDescription: "",
-  };
-  const [Food, setFood] = useState(initialFoodValues);
+  const [foodName, setfoodName] = useState("");
+  const [foodType, setfoodType] = useState("Hamburger");
+  const [foodDescription, setfoodDescription] = useState("");
 
-  const handleInputChange = e => {
-    const { name, value } = e.target;
-    setFood({
-      ...Food,
-      [name]: value,
+  const postFood = () => {
+    Axios.post("http://localhost:3001/api/createfood", {
+      foodName: foodName,
+      foodType: foodType,
+      foodDescription: foodDescription,
+    }).then(() => {
+      console.log("food created successfully" + foodName, foodType, foodDescription);
     });
-    console.log(Food);
   };
 
   return (
@@ -29,33 +27,37 @@ function NewFood({ closeFoodForm }) {
       <form id="foodForm">
         <label>Name</label>
         <input
-          onChange={handleInputChange}
+          onChange={e => {
+            setfoodName(e.target.value);
+          }}
           id="inputFoodName"
           placeholder="Double quarter pounder"
           name="foodName"
-          value={Food.foodName}
         ></input>
+
         <label>Type</label>
         <select
+          /*option ska koma från database finlunchtype*/
           id="inputFoodType"
           name="foodType"
-          value={Food.foodType}
-          onChange={handleInputChange}
+          onChange={e => setfoodType(e.target.value)}
         >
-          <option value="hamburger">hamburger</option>Hamburger
-          <option value="pizza">pizza</option>
-          <option value="kebab">kebab</option>
+          <option value="hamburger">Hamburger</option>
+          <option value="pizza">Pizza</option>
+          <option value="kebab">Kebab</option>
         </select>
+
         <label>Description</label>
         <textarea
-          onChange={handleInputChange}
+          onChange={e => {
+            setfoodDescription(e.target.value);
+          }}
           id="inputFoodDescription"
           placeholder="amazing burger with big patties"
           name="foodDescription"
-          value={Food.foodDescription}
         ></textarea>
       </form>
-      <button onClick={handleInputChange} type="submit">
+      <button onClick={postFood} type="submit">
         Create
       </button>
     </div>

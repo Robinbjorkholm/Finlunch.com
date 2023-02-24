@@ -11,7 +11,7 @@ class FoodDisplay extends Component {
 
   async componentDidMount() {
     const { data } = await getFoodTypes();
-    console.log(data);
+    console.log(" data from db" + data);
   }
 
   openFoodForm = () => {
@@ -25,8 +25,7 @@ class FoodDisplay extends Component {
     return (
       <div className="FoodDisplay">
         <button id="openFoodForm" onClick={() => this.openFoodForm()}>
-          {" "}
-          New Food{" "}
+          New Food
         </button>
 
         {this.state.FoodFormOpen ? <NewFood closeFoodForm={this.closeFoodForm} /> : null}
