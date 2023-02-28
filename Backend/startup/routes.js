@@ -6,5 +6,5 @@ const food = require("../routes/food");
 module.exports = function (app) {
   app.use(express.json());
   //för all routers som böri me /createfood så använd food routern
-  app.use("/api/createfood", food);
+  app.use("/api/food", food);
 };

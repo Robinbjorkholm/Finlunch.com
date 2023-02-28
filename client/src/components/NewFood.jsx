@@ -9,7 +9,16 @@ function NewFood({ closeFoodForm }) {
   const [foodDescription, setfoodDescription] = useState("");
 
   const postFood = () => {
-    Axios.post("http://localhost:3001/api/createfood", {
+    Axios.post("http://localhost:3001/api/food", {
+      foodName: foodName,
+      foodType: foodType,
+      foodDescription: foodDescription,
+    }).then(() => {
+      console.log("food created successfully" + foodName, foodType, foodDescription);
+    });
+  };
+  const updateFood = () => {
+    Axios.post("http://localhost:3001/api/food/:id", {
       foodName: foodName,
       foodType: foodType,
       foodDescription: foodDescription,
