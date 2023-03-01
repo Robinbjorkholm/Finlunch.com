@@ -18,13 +18,27 @@ router.post(
       return;
     } else {
       db.query(
-        "INSERT INTO foods (foodName, foodType, foodDescription) VALUES  (?,?,?)",
-        [foodName, foodType, foodDescription],
-        (err, result) => {
+        "SELECT COUNT(*) AS cnt FROM foods WHERE foodName = ? ",
+        req.body.foodName,
+        function (err, data) {
           if (err) {
             console.log(err);
           } else {
-            res.send("food Created");
+            if (data[0].cnt > 0) {
+              // food already exist
+            } else {
+              db.query(
+                "INSERT INTO foods (foodName, foodType, foodDescription) VALUES  (?,?,?)",
+                [foodName, foodType, foodDescription],
+                (err, result) => {
+                  if (err) {
+                    console.log(err);
+                  } else {
+                    res.send("food Created");
+                  }
+                }
+              );
+            }
           }
         }
       );
