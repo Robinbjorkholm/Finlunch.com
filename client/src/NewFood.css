@@ -50,3 +50,6 @@
   margin-bottom: 3rem;
   resize: vertical;
 }
+#submitButton {
+  width: 50%;
+}

@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import ".././FoodDisplay.css";
 import Pagination from "./utility/Pagination";
-import getFoodTypes from "./Services/getFoodType";
+import getFoods from "./Services/getFoods";
 import NewFood from "./NewFood";
 
 class FoodDisplay extends Component {
   state = {
+    Foods: [],
     FoodFormOpen: false,
   };
 
   async componentDidMount() {
-    const { data } = await getFoodTypes();
-    console.log(" data from db" + data);
+    //{ data }
+    const promise = await getFoods();
+    console.log(" data from dbsdsdds" + promise);
+    //this.setState({ Foods: data });
   }
 
   openFoodForm = () => {

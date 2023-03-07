@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Filtering.css";
-import { getFoodTypes } from "./../Services/getFoodType";
 
 class Filtering extends Component {
   state = {
@@ -28,11 +27,11 @@ class Filtering extends Component {
     console.log(this.state.foodTypes);
   }
 */
-  handleFoodFiltering = food => {
+  /*handleFoodFiltering = food => {
     if (this.state.selectedFoodType === food) {
       this.setState({ selectedFoodType: null });
     } else this.setState({ selectedFoodType: food });
-  };
+  };*/
 
   render() {
     return (

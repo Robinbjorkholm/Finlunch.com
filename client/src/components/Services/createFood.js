@@ -1,11 +1,12 @@
 import Axios from "axios";
 
-const postFood = () => {
-  Axios.post(process.env.REACT_APP_CREATEFOOD, {
-    FoodName: FoodName,
-    FoodType: FoodType,
-    FoodDescription: FoodDescription,
+const postFood = (foodName, foodType, foodDescription) => {
+  Axios.post("http://localhost:3001/food", {
+    foodName: foodName,
+    foodType: foodType,
+    foodDescription: foodDescription,
+  }).then(() => {
+    console.log("food created successfully" + foodName, foodType, foodDescription);
   });
-}
-
+};
 export default postFood;
